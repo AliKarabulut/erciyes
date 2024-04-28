@@ -3,15 +3,19 @@
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
 import Page from "@/components/page";
-import AnimatedNumericData from "../numeric-data-section/animated-numeric-data";
 import Intro from "../intro";
 import Blog from "../blog";
+import SectionHeader from "../section-header";
+import AnimatedIconSection from "../animated-icon-section";
+import PageContent from "../page-content";
 
 const components = {
-  animated: AnimatedNumericData,
+  animated_icon_section: AnimatedIconSection,
   page: Page,
   intro: Intro,
-  blog: Blog,
+  section_header: SectionHeader,
+  content_page: Page,
+  // blog: Blog,
 };
 
 /** 2. Initialize it as usual */

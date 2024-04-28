@@ -1,5 +1,5 @@
 import { renderRichText } from "@storyblok/js";
-,
+
 type IntroProps = {
   blok: {
     title: string;
@@ -10,13 +10,11 @@ type IntroProps = {
 };
 
 const Blog = ({ blok }: IntroProps) => {
+  const richText = blok.markdown_content;
+  const renderedRichText = renderRichText(richText);
 
- const renderedRichText(blok.text.);
-  console.log(blok);
   return (
-    <div>
-      {render(richText)}
-    </div>
+    <div dangerouslySetInnerHTML={{ __html: renderedRichText }} />
   );
 };
 
