@@ -1,0 +1,148 @@
+#kvkk_popup {
+  z-index: 2147483645;
+  background-color: #fff;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 750px;
+  max-width: 98%;
+  min-height: 250px;
+  max-height: 95%;
+  padding: 35px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #c4c4c4;
+  box-shadow: 0 4px 70px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  overflow: auto;
+  text-align: center;
+  display: none;
+}
+
+#kvkk_popup > h3 {
+  color: #333;
+  font-family: "Roboto";
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 23px;
+}
+#kvkk_popup > p {
+  color: #333;
+  font-family: "Roboto";
+  text-align: justify;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+#kvkk_popup a {
+  color: #888;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+#kvkk_popup ul {
+  list-style: none;
+  padding: 5px 0;
+  text-align: left;
+  line-height: 1.8;
+}
+
+#kvkk_popup li > label {
+  display: flex;
+  font-family: "Roboto";
+  align-items: center;
+}
+#kvkk_popup li > label > input {
+  font-family: "Roboto";
+  width: auto;
+  margin-right: 5px;
+}
+
+#kvkk_popup li > p {
+  color: #999;
+  font-family: "Roboto";
+  text-align: justify;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+#kvkk_popup > div {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+#kvkk_popup button {
+  font-size: 12px;
+  background-color: #fff;
+  color: #0083bf;
+  font-weight: 500;
+  line-height: inherit;
+  border: 0px solid #0083bf;
+  box-shadow: rgba(0, 0, 0, 0) 0px 2px 3px;
+  padding: 12px 30px;
+  border: 1px solid #0083bf;
+}
+
+#kvkk_popup button:focus {
+  outline: #fff;
+}
+
+#kvkk_popup button:first-child {
+  background-color: #0083bf;
+  color: #fff;
+  margin-right: 20px;
+}
+
+#kvkk_tercihler {
+  display: none;
+}
+
+#kabul_tercihler {
+  display: none;
+}
+
+.overlay-menu {
+  z-index: 2147483644;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: opacity 1s;
+  background: rgb(0 0 0 / 65%);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  #kvkk_popup {
+    padding: 30px;
+    height: auto;
+  }
+
+  #kvkk_popup ul {
+    flex-wrap: wrap;
+  }
+
+  #kvkk_popup li {
+    display: block;
+  }
+
+  #kvkk_popup > div {
+    flex-wrap: wrap;
+  }
+
+  #kvkk_popup button {
+    width: 100%;
+  }
+  #kvkk_popup button:first-child {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
