@@ -3,6 +3,11 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokProvider from "@/components/storyblok-provider";
+// import "@/js-files/kvkk";
+// import "@/js-files/main";
+// import "@/js-files/jquery.min";
+// import "@/js-files/vendors";
+// import "@/js-files/magnific.min";
 
 const inter = Inter({ subsets: ["latin"] });
 

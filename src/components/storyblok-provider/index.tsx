@@ -4,10 +4,10 @@ import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
 import Page from "@/components/page";
 import Intro from "../intro";
-import Blog from "../blog";
 import SectionHeader from "../section-header";
 import AnimatedIconSection from "../animated-icon-section";
-import PageContent from "../page-content";
+import SectionWrapper from "../section-wrapper";
+import TabMenu from "../tab-menu";
 
 const components = {
   animated_icon_section: AnimatedIconSection,
@@ -15,7 +15,8 @@ const components = {
   intro: Intro,
   section_header: SectionHeader,
   content_page: Page,
-  // blog: Blog,
+  section_wrapper: SectionWrapper,
+  tab_menu: TabMenu,
 };
 
 /** 2. Initialize it as usual */
