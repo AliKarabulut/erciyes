@@ -40,7 +40,7 @@ const SectionWrapper = ({ blok }: SectionWrapperProps) => {
           )}
           {blok?.button_label && (
             <div className="c-know-us__actions animate fadeInUp">
-              <Link className="c-button" href={blok.link}>
+              <Link className="c-button" href={blok?.link ?? '#'}>
                 {blok.button_label}
               </Link>
             </div>
