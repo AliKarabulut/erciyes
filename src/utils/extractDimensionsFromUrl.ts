@@ -1,6 +1,6 @@
-const extractDimensionsFromUrl = (url: string) => {
+const extractDimensionsFromUrl = (url?: string) => {
   const regex = /\/(\d+)x(\d+)\//;
-  const match = url.match(regex);
+  const match = url?.match(regex);
 
   if (match) {
     const width = parseInt(match[1], 10);

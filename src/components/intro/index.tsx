@@ -1,10 +1,10 @@
 import React from "react";
 
 type IntroProps = {
-  blok: {
-    title: string;
-    description: string;
-    background_image: { filename: string };
+  blok?: {
+    title?: string;
+    description?: string;
+    background_image?: { filename?: string };
   };
 };
 

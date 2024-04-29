@@ -16,14 +16,14 @@ const Header = async () => {
     },
   } = await fetchData();
 
-  const { width, height } = extractDimensionsFromUrl(content.site_logo.filename);
+  const { width, height } = content?.site_logo?.filename ? extractDimensionsFromUrl(content.site_logo.filename) : { width: 0, height: 0 };
   return (
     <>
       <header className="o-header" role="presentation">
         <div className="o-header__top">
           <div className="o-header__logo">
             <a href="/">
-              <Image className="logo" src={content.site_logo.filename} width={width} height={height} alt="site-header-logo" />
+              <Image className="logo" src={content?.site_logo?.filename} width={width} height={height} alt="site-header-logo" />
             </a>
           </div>
           <div className="o-header__nav">
@@ -51,10 +51,10 @@ const Header = async () => {
         <div className="o-container">
           <div className="c-main-nav__wrapper">
             <ul className="c-main-nav">
-              {content.navigation_link.map((e: any) => (
-                <li key={e._uid} className="c-main-nav__item c-main-nav__item--has-submenu">
+              {content?.navigation_link?.map((e: any) => (
+                <li key={e?._uid} className="c-main-nav__item c-main-nav__item--has-submenu">
                   <a className="parent-link" href="javascript:;">
-                    {e.label}
+                    {e?.label}
                   </a>
                 </li>
               ))}

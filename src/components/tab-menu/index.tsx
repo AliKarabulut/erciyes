@@ -5,7 +5,9 @@ import { useState } from "react";
 import { render } from "storyblok-rich-text-react-renderer";
 
 type TabMenuProps = {
-  blok: any;
+  blok?: {
+    tabs?: any[];
+  };
 };
 
 const TabMenu = ({ blok }: TabMenuProps) => {
@@ -17,30 +19,30 @@ const TabMenu = ({ blok }: TabMenuProps) => {
       <div className="c-tabs">
         <div className="c-tabs__nav animate fadeInUp" data-wow-delay="300ms">
           <ul>
-            {blok.tabs.map((e: any, index: any) => (
+            {blok?.tabs?.map((e: any, index: any) => (
               <li className={index === activeTab ? "js-active" : ""} key={index}>
-                <a href={`#${e.title.toLowerCase()}`} onClick={() => setActiveTab(index)}>
+                <a href={`#${e?.title?.toLowerCase()}`} onClick={() => setActiveTab(index)}>
                   <svg className="u-icon">
-                    <use xlinkHref={`#${e.title.toLowerCase()}-icon`}></use>
+                    <use xlinkHref={`#${e?.title?.toLowerCase()}-icon`}></use>
                   </svg>
-                  <span>{e.title}</span>
+                  <span>{e?.title}</span>
                 </a>
               </li>
             ))}
           </ul>
         </div>
         <div className="c-tabs__content animate fadeInUp" data-wow-delay="500ms">
-          <div id={blok.tabs[activeTab].title.toLowerCase()} className="c-tabs__tab-content js-active">
+          <div id={blok?.tabs?.[activeTab]?.title?.toLowerCase()} className="c-tabs__tab-content js-active">
             <div className="c-brands__title">
-              {render(blok.tabs[activeTab].content)}
-              {blok.tabs[activeTab].content_images && (
+              {render(blok?.tabs?.[activeTab]?.content)}
+              {blok?.tabs?.[activeTab]?.content_images && (
                 <div className="c-brands__items c-col__row">
                   {blok.tabs[activeTab].content_images.map((image: any) => {
-                    const { width, height } = extractDimensionsFromUrl(image.filename);
+                    const { width, height } = image?.filename ? extractDimensionsFromUrl(image.filename) : { width: 0, height: 0 };
                     return (
-                      <div key={image.id} className="c-brands__item c-col c-col-4">
+                      <div key={image?.id} className="c-brands__item c-col c-col-4">
                         <a href="#">
-                          <Image src={image.filename} alt="İstikbal Mobilya" width={width} height={height} />
+                          <Image src={image?.filename} alt="İstikbal Mobilya" width={width} height={height} />
                         </a>
                       </div>
                     );

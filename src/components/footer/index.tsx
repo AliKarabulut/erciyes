@@ -15,26 +15,26 @@ const Footer = async () => {
       story: { content },
     },
   } = await fetchData();
-  const { width, height } = extractDimensionsFromUrl(content.site_logo.filename);
+  const { width, height } = content?.site_logo?.filename ? extractDimensionsFromUrl(content.site_logo.filename) : { width: 0, height: 0 };
   return (
     <section className="o-footer" role="contentinfo">
       <div className="o-container o-footer__top">
         <div className="o-footer__column o-footer__column--col-1">
           <div className="o-footer__logo">
             <a href="/">
-              <Image className="logo" src={content.footer_logo.filename} width={width} height={height} alt="site-header-logo" />
+              <Image className="logo" src={content?.footer_logo?.filename} width={width} height={height} alt="site-header-logo" />
             </a>
           </div>
         </div>
 
-        {content.footer_cols.map((e:any) => (
-          <div className="o-footer__column" key={e._uid}>
+        {content?.footer_cols?.map((e:any) => (
+          <div className="o-footer__column" key={e?._uid}>
             <div className="o-footer__nav">
-              <h6 className="o-footer__title js-footer-accordion">{e.title}</h6>
+              <h6 className="o-footer__title js-footer-accordion">{e?.title}</h6>
               <nav className="o-footer__nav__list">
-                {e.links.map((e:any) => (
-                  <Link key={e._uid} className="o-footer__nav__item" href={`/${e.link.url}`}>
-                    {e.label}
+                {e?.links?.map((e:any) => (
+                  <Link key={e?._uid} className="o-footer__nav__item" href={`/${e?.link?.url}`}>
+                    {e?.label}
                   </Link>
                 ))}
               </nav>
