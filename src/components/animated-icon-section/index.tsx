@@ -1,3 +1,4 @@
+import { storyblokEditable } from "@storyblok/react/rsc";
 import extractDimensionsFromUrl from "@/utils/extractDimensionsFromUrl";
 import clsx from "clsx";
 import Image from "next/image";
@@ -19,7 +20,7 @@ type AnimatedIconSectionProps = {
 
 const AnimatedIconSection = ({ blok }: AnimatedIconSectionProps) => {
   return (
-    <div className="c-col__row">
+    <div className="c-col__row" {...storyblokEditable(blok)}> 
       {blok?.boxes?.map((e, index) => {
         const { width, height } = extractDimensionsFromUrl(e?.icon?.filename ?? "");
         return (

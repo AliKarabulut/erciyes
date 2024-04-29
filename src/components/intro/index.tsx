@@ -1,7 +1,7 @@
-import React from "react";
+import { storyblokEditable } from "@storyblok/react/rsc";
 
 type IntroProps = {
-  blok?: {
+  blok: {
     title?: string;
     description?: string;
     background_image?: { filename?: string };
@@ -10,7 +10,7 @@ type IntroProps = {
 
 const Intro = ({ blok }: IntroProps) => {
   return (
-    <div className="c-sub-header c-sub-header--page">
+    <div className="c-sub-header c-sub-header--page" {...storyblokEditable(blok)}>
       <div
         className="c-sub-header__wrapper"
         style={{

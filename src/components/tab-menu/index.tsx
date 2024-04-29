@@ -1,11 +1,12 @@
 import Icons from "@/icons";
 import extractDimensionsFromUrl from "@/utils/extractDimensionsFromUrl";
+import { storyblokEditable } from "@storyblok/react/rsc";
 import Image from "next/image";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { render } from "storyblok-rich-text-react-renderer";
 
 type TabMenuProps = {
-  blok?: {
+  blok: {
     tabs?: any[];
   };
 };
@@ -14,7 +15,7 @@ const TabMenu = ({ blok }: TabMenuProps) => {
   const [activeTab, setActiveTab] = useState(1);
 
   return (
-    <>
+    <Fragment {...storyblokEditable(blok)}>
       <Icons />
       <div className="c-tabs">
         <div className="c-tabs__nav animate fadeInUp" data-wow-delay="300ms">
@@ -53,7 +54,7 @@ const TabMenu = ({ blok }: TabMenuProps) => {
           </div>
         </div>
       </div>
-    </>
+    </Fragment>
   );
 };
 

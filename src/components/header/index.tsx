@@ -47,7 +47,7 @@ const Header = async () => {
           </div>
         </div>
       </header>
-      <div className="c-main-nav__container js-open">
+      <div className="c-main-nav__container" style={{display: 'none'}}>
         <div className="o-container">
           <div className="c-main-nav__wrapper">
             <ul className="c-main-nav">

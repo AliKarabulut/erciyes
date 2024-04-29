@@ -1,11 +1,11 @@
-import { StoryblokComponent } from "@storyblok/react/rsc";
+import { StoryblokComponent, storyblokEditable } from "@storyblok/react/rsc";
 import React from "react";
 import BgBorder from "../bg-border";
 import SectionHeader from "../section-header";
 import Link from "next/link";
 
 type SectionWrapperProps = {
-  blok?: {
+  blok: {
     section_header?: string;
     section_title?: string;
     section_description?: string;
@@ -20,7 +20,7 @@ type SectionWrapperProps = {
 
 const SectionWrapper = ({ blok }: SectionWrapperProps) => {
   return (
-    <div className="c-know-us c-brands u-relative">
+    <div className="c-know-us c-brands u-relative" {...storyblokEditable(blok)}>
       {blok?.bg_border && <BgBorder />}
       <div className="c-know-us__wrapper">
         <div className="o-container">
