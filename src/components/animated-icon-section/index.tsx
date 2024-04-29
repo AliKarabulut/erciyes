@@ -20,23 +20,23 @@ type AnimatedIconSectionProps = {
 const AnimatedIconSection = ({ blok }: AnimatedIconSectionProps) => {
   return (
     <div className="c-col__row">
-      {blok.boxes.map((e, index) => {
-        const { width, height } = extractDimensionsFromUrl(e.icon.filename);
+      {blok?.boxes?.map((e, index) => {
+        const { width, height } = extractDimensionsFromUrl(e?.icon?.filename ?? "");
         return (
           <div
             key={index}
-            className={clsx("c-col c-col-4 animate", e.animation_name)}
-            style={{ animationDelay: `${e.delay}ms`, animationName: e.animation_name }}
+            className={clsx("c-col c-col-4 animate", e?.animation_name)}
+            style={{ animationDelay: `${e?.delay ?? 0}ms`, animationName: e?.animation_name }}
           >
             <div className="c-know-us__item">
               <div className="c-icon-box">
                 <div className="c-icon-box__icon">
-                  <Image alt={e.description} src={e.icon.filename} width={width} height={height} />
+                  <Image alt={e?.description} src={e?.icon?.filename} width={width} height={height} />
                 </div>
                 <div className="c-icon-box__title">
-                  <span>{e.value}</span>
+                  <span>{e?.value}</span>
                 </div>
-                <div className="c-icon-box__desc">{e.description}</div>
+                <div className="c-icon-box__desc">{e?.description}</div>
               </div>
             </div>
           </div>
