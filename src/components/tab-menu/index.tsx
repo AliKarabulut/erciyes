@@ -9,10 +9,6 @@ type TabMenuProps = {
 
 const TabMenu = ({ blok }: TabMenuProps) => {
   const [activeTab, setActiveTab] = useState(1);
-  useEffect(() => {
-    console.log(blok);
-    console.log(activeTab);
-  }, [activeTab]);
 
   return (
     <>

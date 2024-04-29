@@ -3,11 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokProvider from "@/components/storyblok-provider";
-// import "@/js-files/kvkk";
-// import "@/js-files/main";
-// import "@/js-files/jquery.min";
-// import "@/js-files/vendors";
-// import "@/js-files/magnific.min";
+import Script from "next/script";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +27,15 @@ export default function RootLayout({
   return (
     <StoryblokProvider>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <Header />
+          {children}
+          <Footer />
+        </body>
+        <Script src="/js-files/jquery.min.js" strategy="beforeInteractive" />
+        <Script src="/js-files/vendors.js" strategy="beforeInteractive" />
+        <Script src="/js-files/main.js" strategy="beforeInteractive" />
+        <Script src="/js-files/magnific.min.js" strategy="beforeInteractive" />
       </html>
     </StoryblokProvider>
   );
