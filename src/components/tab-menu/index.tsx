@@ -1,6 +1,7 @@
 import Icons from "@/icons";
+import extractDimensionsFromUrl from "@/utils/extractDimensionsFromUrl";
 import Image from "next/image";
-import { Fragment, useEffect, useState } from "react";
+import { useState } from "react";
 import { render } from "storyblok-rich-text-react-renderer";
 
 type TabMenuProps = {
@@ -16,7 +17,7 @@ const TabMenu = ({ blok }: TabMenuProps) => {
       <div className="c-tabs">
         <div className="c-tabs__nav animate fadeInUp" data-wow-delay="300ms">
           <ul>
-            {blok.tabs.map((e, index) => (
+            {blok.tabs.map((e: any, index: any) => (
               <li className={index === activeTab ? "js-active" : ""} key={index}>
                 <a href={`#${e.title.toLowerCase()}`} onClick={() => setActiveTab(index)}>
                   <svg className="u-icon">
@@ -34,13 +35,16 @@ const TabMenu = ({ blok }: TabMenuProps) => {
               {render(blok.tabs[activeTab].content)}
               {blok.tabs[activeTab].content_images && (
                 <div className="c-brands__items c-col__row">
-                  {blok.tabs[activeTab].content_images.map((image) => (
-                    <div key={image.id} className="c-brands__item c-col c-col-4">
-                      <a href="#">
-                        <img src={image.filename} alt="İstikbal Mobilya" />
-                      </a>
-                    </div>
-                  ))}
+                  {blok.tabs[activeTab].content_images.map((image: any) => {
+                    const { width, height } = extractDimensionsFromUrl(image.filename);
+                    return (
+                      <div key={image.id} className="c-brands__item c-col c-col-4">
+                        <a href="#">
+                          <Image src={image.filename} alt="İstikbal Mobilya" width={width} height={height} />
+                        </a>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>

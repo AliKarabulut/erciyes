@@ -27,12 +27,12 @@ const Footer = async () => {
           </div>
         </div>
 
-        {content.footer_cols.map((e) => (
+        {content.footer_cols.map((e:any) => (
           <div className="o-footer__column" key={e._uid}>
             <div className="o-footer__nav">
               <h6 className="o-footer__title js-footer-accordion">{e.title}</h6>
               <nav className="o-footer__nav__list">
-                {e.links.map((e) => (
+                {e.links.map((e:any) => (
                   <Link key={e._uid} className="o-footer__nav__item" href={`/${e.link.url}`}>
                     {e.label}
                   </Link>
