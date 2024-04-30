@@ -17,5 +17,5 @@ export default async function Page({ params }: PageParams) {
 const fetchData = async (slug: string[]) => {
   let sbParams: { version: "draft" | "published" | undefined } = { version: "draft" };
   const storyblokApi = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/${slug}`, sbParams, { cache: "no-store" });
+  return storyblokApi.get(`cdn/stories/${slug.join('/')}`, sbParams, { cache: "no-store" });
 };
