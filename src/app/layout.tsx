@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     siteName: "Erciyes Anadolu Demo",
     images: [
       {
-        url: 'image-url',
+        url: "image-url",
         width: 1200,
         height: 630,
-        alt: 'Description of the image',
+        alt: "Description of the image",
       },
     ],
   },
@@ -45,11 +45,11 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <Script src="/js-files/vendors.js"  />
+          <Script src="/js-files/jquery.min.js"  />
+          <Script src="/js-files/magnific.min.js"  />
+          <Script src="/js-files/main.js" />
         </body>
-        <Script src="/js-files/jquery.min.js" strategy="beforeInteractive" />
-        <Script src="/js-files/vendors.js" strategy="beforeInteractive" />
-        <Script src="/js-files/main.js" strategy="beforeInteractive" />
-        <Script src="/js-files/magnific.min.js" strategy="beforeInteractive" />
       </html>
     </StoryblokProvider>
   );
