@@ -6,7 +6,7 @@ import Page from "@/components/page";
 import Intro from "../intro";
 import SectionHeader from "../section-header";
 import AnimatedIconSection from "../animated-icon-section";
-import SectionWrapper from "../section-wrapper";
+import SectionContainer from "../section-container";
 import TabMenu from "../tab-menu";
 
 const components = {
@@ -15,8 +15,8 @@ const components = {
   intro: Intro,
   section_header: SectionHeader,
   content_page: Page,
-  section_wrapper: SectionWrapper,
-  tab_menu: TabMenu,
+  section_container: SectionContainer,
+  tab_menu_section: TabMenu,
 };
 
 /** 2. Initialize it as usual */

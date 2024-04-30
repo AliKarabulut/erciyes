@@ -28,6 +28,7 @@ const AnimatedIconSection = ({ blok }: AnimatedIconSectionProps) => {
             key={index}
             className={clsx("c-col c-col-4 animate", e?.animation_name)}
             style={{ animationDelay: `${e?.delay ?? 0}ms`, animationName: e?.animation_name }}
+            {...storyblokEditable(blok)}
           >
             <div className="c-know-us__item">
               <div className="c-icon-box">

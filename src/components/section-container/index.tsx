@@ -4,7 +4,7 @@ import BgBorder from "../bg-border";
 import SectionHeader from "../section-header";
 import Link from "next/link";
 
-type SectionWrapperProps = {
+type SectionContainerProps = {
   blok: {
     section_header?: string;
     section_title?: string;
@@ -18,7 +18,7 @@ type SectionWrapperProps = {
   };
 };
 
-const SectionWrapper = ({ blok }: SectionWrapperProps) => {
+const SectionContainer = ({ blok }: SectionContainerProps) => {
   return (
     <div className="c-know-us c-brands u-relative" {...storyblokEditable(blok)}>
       {blok?.bg_border && <BgBorder />}
@@ -51,4 +51,4 @@ const SectionWrapper = ({ blok }: SectionWrapperProps) => {
   );
 };
 
-export default SectionWrapper;
+export default SectionContainer;
