@@ -1,9 +1,8 @@
 import Icons from "@/icons";
-import extractDimensionsFromUrl from "@/utils/extractDimensionsFromUrl";
 import { storyblokEditable } from "@storyblok/react/rsc";
-import Image from "next/image";
-import { Fragment, useState } from "react";
-import { render } from "storyblok-rich-text-react-renderer";
+import { useState } from "react";
+import TabHeader from "./tab-header";
+import TabContent from "./tab-content";
 
 type TabMenuProps = {
   blok: {
@@ -15,25 +14,30 @@ const TabMenu = ({ blok }: TabMenuProps) => {
   const [activeTab, setActiveTab] = useState(1);
 
   return (
-    <Fragment {...storyblokEditable(blok)}>
+    <div {...storyblokEditable(blok)}>
       <Icons />
       <div className="c-tabs">
         <div className="c-tabs__nav animate fadeInUp" data-wow-delay="300ms">
           <ul>
-            {blok?.tabs?.map((e: any, index: any) => (
-              <li className={index === activeTab ? "js-active" : ""} key={index}>
-                <a href={`#${e?.title?.toLowerCase()}`} onClick={() => setActiveTab(index)}>
-                  <svg className="u-icon">
-                    <use xlinkHref={`#${e?.title?.toLowerCase()}-icon`}></use>
-                  </svg>
-                  <span>{e?.title}</span>
-                </a>
-              </li>
+            {blok?.tabs?.map((e: any, index: number) => (
+              <TabHeader blok={e} key={index} />
             ))}
           </ul>
         </div>
         <div className="c-tabs__content animate fadeInUp" data-wow-delay="500ms">
-          <div id={blok?.tabs?.[activeTab]?.title?.toLowerCase()} className="c-tabs__tab-content js-active">
+          {blok?.tabs?.map((e: any, index: number) => (
+            <TabContent blok={e} key={index + 1000} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default TabMenu;
+
+{
+  /* <div id={blok?.tabs?.[activeTab]?.title?.toLowerCase()} className="c-tabs__tab-content js-active">
             <div className="c-brands__title">
               {render(blok?.tabs?.[activeTab]?.content)}
               {blok?.tabs?.[activeTab]?.content_images && (
@@ -51,11 +55,5 @@ const TabMenu = ({ blok }: TabMenuProps) => {
                 </div>
               )}
             </div>
-          </div>
-        </div>
-      </div>
-    </Fragment>
-  );
-};
-
-export default TabMenu;
+          </div> */
+}

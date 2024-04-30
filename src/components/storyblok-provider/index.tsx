@@ -6,8 +6,8 @@ import Page from "@/components/page";
 import Intro from "../intro";
 import SectionHeader from "../section-header";
 import AnimatedIconSection from "../animated-icon-section";
-import SectionContainer from "../section-container";
 import TabMenu from "../tab-menu";
+import SectionContainer from "../section-container";
 
 const components = {
   animated_icon_section: AnimatedIconSection,
