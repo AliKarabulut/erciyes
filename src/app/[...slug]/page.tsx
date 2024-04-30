@@ -7,11 +7,9 @@ type PageParams = {
 
 export default async function Page({ params }: PageParams) {
   const { data } = await fetchData(params.slug);
-  // console.log(data);
   return (
     <main>
-      {/* <StoryblokStory story={data.story} /> */}
-      asdas
+      <StoryblokStory story={data.story} />
     </main>
   );
 }

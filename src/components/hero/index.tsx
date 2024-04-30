@@ -7,7 +7,6 @@ type HeroProps = {
 };
 
 const Hero = ({ blok }: HeroProps) => {
-  console.log(blok);
   return (
     <section className="o-section">
       <div className="c-full-slider">
