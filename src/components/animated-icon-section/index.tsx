@@ -1,7 +1,5 @@
 import { storyblokEditable } from "@storyblok/react/rsc";
-import extractDimensionsFromUrl from "@/utils/extractDimensionsFromUrl";
-import clsx from "clsx";
-import Image from "next/image";
+import AnimatedIconBox from "./animated-icon-box";
 
 type AnimatedIconSectionProps = {
   blok: {
@@ -20,30 +18,10 @@ type AnimatedIconSectionProps = {
 
 const AnimatedIconSection = ({ blok }: AnimatedIconSectionProps) => {
   return (
-    <div className="c-col__row" {...storyblokEditable(blok)}> 
-      {blok?.boxes?.map((e, index) => {
-        const { width, height } = extractDimensionsFromUrl(e?.icon?.filename ?? "");
-        return (
-          <div
-            key={index}
-            className={clsx("c-col c-col-4 animate", e?.animation_name)}
-            style={{ animationDelay: `${e?.delay ?? 0}ms`, animationName: e?.animation_name }}
-            {...storyblokEditable(blok)}
-          >
-            <div className="c-know-us__item">
-              <div className="c-icon-box">
-                <div className="c-icon-box__icon">
-                  <Image alt={e?.description} src={e?.icon?.filename} width={width} height={height} />
-                </div>
-                <div className="c-icon-box__title">
-                  <span>{e?.value}</span>
-                </div>
-                <div className="c-icon-box__desc">{e?.description}</div>
-              </div>
-            </div>
-          </div>
-        );
-      })}
+    <div className="c-col__row" {...storyblokEditable(blok)}>
+      {blok?.boxes?.map((e, index) => (
+        <AnimatedIconBox key={index} blok={e} />
+      ))}
     </div>
   );
 };
