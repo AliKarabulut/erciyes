@@ -42,7 +42,6 @@ const SwiperSlide = ({ blok }: SwiperSlideProps) => {
       data-mobile="/assets/img/uploads/banner/anadolu-erjiyes-mobil-banner.jpg"
       data-tablet="/assets/img/uploads/banner/anadolu-erjiyes-tablet-banner.jpg"
       data-xl={blok?.bg_image?.filename}
-      href="javascript:;"
       style={{ width: "1903px", background: `url(${blok?.bg_image?.filename}) center center / cover` }}
       {...storyblokEditable(blok)}
     >
